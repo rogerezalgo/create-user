@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <form 
+        action="#" 
+        id="user"
+    >
+        <BasicInfo  
+            :textInput="textInput"
+            :anotherInput="anotherInput"
+            :sexSelect="sexSelect"
+            :clientGroup="clientGroup"
+            :doctors="doctors"
+            @checked="checked"
+        />
+    </form>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import common from './kernel/common'
+    import BasicInfo from './components/BasicInfo.vue'
+    
+    export default {
+        name: 'App',
+        
+        data() {
+            return {
+                //BasicInfo
+                textInput: common.dataTextType, //Array 
+                anotherInput: common.dataAnotherType, //Array
+                sexSelect: common.sex , //Array
+                clientGroup: common.clientGroup, //Object
+                doctors: common.doctors, //Object
+                dontSendSMS: false
+            }
+        },
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+        components: {
+            BasicInfo,
+        },
+
+        methods: {
+            checked(checkMark) {
+                this.dontSendSMS = checkMark
+            }
+        }
+    }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
