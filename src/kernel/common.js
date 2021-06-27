@@ -1,8 +1,8 @@
 const common = {
     _inputTextType: {
-        for_name_id: ['secondName', 'firstName', 'pathronym'],
+        for_name_id: ['secondName', 'firstName', 'pathronym'], //атрибуты for, name и id 
         required: [true, true, false],
-        labels: ['Фамилия', 'Имя', 'Отчество'], //атрибуты for, name и id 
+        labels: ['Фамилия', 'Имя', 'Отчество'], 
     },
     _anotherTypes: {
         types: ['datetime', 'tel'],
