@@ -162,18 +162,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .required {
-        color: #f00;
-        font-size: 10px;
-    }
-
-    .pointer {
-        cursor: pointer
-    }
-
-    label {
-        cursor: pointer
-    }
-</style>

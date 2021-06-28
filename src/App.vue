@@ -3,18 +3,25 @@
         action="#" 
         id="user"
     >
-        <BasicInfo  
-            :textInput="textInput"
-            :anotherInput="anotherInput"
-            :sexSelect="sexSelect"
-            :clientGroup="clientGroup"
-            :doctors="doctors"
-            @checked="checked"
-        />
+        <div class="container">
+            <BasicInfo  
+                :textInput="textInput"
+                :anotherInput="anotherInput"
+                :sexSelect="sexSelect"
+                :clientGroup="clientGroup"
+                :doctors="doctors"
+                @checked="checked"
+            />
 
-        <Destination
-            :dest="dest"
-        />
+            <Destination
+                :dest="dest"
+            />
+
+            <Documents
+                :doctype="docType"
+                :inputs="inputs" 
+            />
+        </div>
     </form>
 </template>
 
@@ -22,10 +29,12 @@
     //data
     import common from './kernel/common'
     import destination from './kernel/destination'
+    import documents from './kernel/docs'
 
     //components
     import BasicInfo from './components/BasicInfo.vue'
     import Destination from './components/Destination.vue'
+    import Documents from './components/Document.vue'
     
     export default {
         name: 'App',
@@ -41,13 +50,18 @@
                 dontSendSMS: false,
 
                 //Destination
-                dest: destination.getDestination
+                dest: destination.getDestination,
+
+                //Documents
+                docType: documents.docType,
+                inputs: documents.inputs,
             }
         },
 
         components: {
             BasicInfo,
             Destination,
+            Documents,
         },
 
         methods: {
@@ -59,6 +73,17 @@
 </script>
 
 <style lang="scss">
+    form {
+        display: flex;
+        margin: 0 auto;
+        width: 60%;
+
+        padding: 20px;
+        justify-content: center;
+
+        border: solid 1px #333;
+        border-radius: 10px;
+    }
     .required {
         color: #f00;
         font-size: 10px;

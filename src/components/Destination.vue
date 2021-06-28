@@ -20,6 +20,7 @@
             <input 
                 :type="area.type"
                 :name="area.name"
+                :id="area.name"
                 :required="area.required"
             />
         </div>
